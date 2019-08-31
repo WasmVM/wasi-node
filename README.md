@@ -1,8 +1,8 @@
 # WASI node
 
-## Goal
-
 Provide a Node.js C/C++ addon supporting WASI interface.
+
+## Goal
 
 We can use [wasi-sdk](https://github.com/CraneStation/wasi-sdk) to compile C/C++ source code into WebAssembly binary, and then execute it by Node with our addon.
 
@@ -70,7 +70,7 @@ We can use [wasi-sdk](https://github.com/CraneStation/wasi-sdk) to compile C/C++
 ## Notes
 
 * Preferred N-API
-    * [ref-1](https://nodejs.org/api/n-api.html)
+    * [N-API](https://nodejs.org/api/n-api.html)
     * [ref-2](https://nodejs.org/api/addons.html#addons_n_api)
 
 ## Reference
