@@ -1,0 +1,27 @@
+{
+  "name": "wasi-node",
+  "version": "1.0.0",
+  "description": "Provide a Node.js C/C++ addon supporting WASI interface.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WasmVM/wasi-node.git"
+  },
+  "author": "",
+  "license": "UNLICENCED",
+  "gypfile": true,
+  "bugs": {
+    "url": "https://github.com/WasmVM/wasi-node/issues"
+  },
+  "homepage": "https://github.com/WasmVM/wasi-node#readme",
+  "dependencies": {
+    "node-addon-api": "^1.7.1",
+    "node-gyp": "^5.0.3"
+  }
+}

@@ -1,0 +1,5 @@
+{
+	"name": "Node.js (latest LTS)",
+	"dockerFile": "../docker/Dockerfile",
+	"extensions": []
+}
