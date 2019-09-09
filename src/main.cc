@@ -32,6 +32,13 @@ napi_value initialize(napi_env env, napi_value exports) {
   
   napi_value method;
   WASI_NODE_INIT_API(module, method, fd_prestat_get, "fd_prestat_get");
+  WASI_NODE_INIT_API(module, method, fd_prestat_dir_name, "fd_prestat_dir_name");
+  WASI_NODE_INIT_API(module, method, environ_sizes_get, "environ_sizes_get");
+  WASI_NODE_INIT_API(module, method, environ_get, "environ_get");
+  WASI_NODE_INIT_API(module, method, args_sizes_get, "args_sizes_get");
+  WASI_NODE_INIT_API(module, method, args_get, "args_get");
+  WASI_NODE_INIT_API(module, method, proc_exit, "proc_exit");
+  WASI_NODE_INIT_API(module, method, fd_fdstat_get, "fd_fdstat_get");
 
   // module.exports.wasi_unstable
   if (napi_set_named_property(env, exports, "wasi_unstable", module) != napi_ok) return nullptr;
