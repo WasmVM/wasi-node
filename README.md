@@ -4,7 +4,8 @@ Provide a Node.js C/C++ addon supporting WASI interface.
 
 ## Build
 
-TBD
+* `npm install` 
+    * Install deps and using node-gyp to build our addon module. (`build/Release/wasi_node.node`)
 
 ## Run a WebAssembly binary
 
