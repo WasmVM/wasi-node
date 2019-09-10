@@ -11,12 +11,14 @@
 #ifndef __wasi_core_h
 #define __wasi_core_h
 
-#ifndef __wasi__
-#error <wasi/core.h> is only supported on WASI platforms.
-#endif
-
 #include <stddef.h>
 #include <stdint.h>
+
+#ifdef __cplusplus
+#define _Static_assert static_assert
+#define _Alignof alignof
+extern "C" {
+#endif
 
 _Static_assert(_Alignof(int8_t) == 1, "non-wasi data layout");
 _Static_assert(_Alignof(uint8_t) == 1, "non-wasi data layout");
@@ -26,10 +28,6 @@ _Static_assert(_Alignof(int32_t) == 4, "non-wasi data layout");
 _Static_assert(_Alignof(uint32_t) == 4, "non-wasi data layout");
 _Static_assert(_Alignof(int64_t) == 8, "non-wasi data layout");
 _Static_assert(_Alignof(uint64_t) == 8, "non-wasi data layout");
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 typedef uint8_t __wasi_advice_t;
 #define __WASI_ADVICE_NORMAL     (UINT8_C(0))
@@ -448,6 +446,7 @@ _Static_assert(
 _Static_assert(sizeof(__wasi_subscription_t) == 56, "non-wasi data layout");
 _Static_assert(_Alignof(__wasi_subscription_t) == 8, "non-wasi data layout");
 
+/*
 #define __WASI_SYSCALL_NAME(name) \
     __attribute__((__import_module__("wasi_unstable"), __import_name__(#name)))
 
@@ -734,11 +733,11 @@ __wasi_errno_t __wasi_sock_shutdown(
 
 __wasi_errno_t __wasi_sched_yield(void)
     __WASI_SYSCALL_NAME(sched_yield) __attribute__((__warn_unused_result__));
-
+*/
 #ifdef __cplusplus
 }
 #endif
 
-#undef __WASI_SYSCALL_NAME
+//#undef __WASI_SYSCALL_NAME
 
 #endif
