@@ -8,7 +8,9 @@ TBD
 
 ## Run a WebAssembly binary
 
-TBD
+```shell
+node --experimental-wasm-bigint scripts/start.js <wasm_file>
+```
 
 ## Documents
 
