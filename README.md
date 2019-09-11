@@ -9,7 +9,9 @@ Provide a Node.js C/C++ addon supporting WASI interface.
 
 ## Run a WebAssembly binary
 
-TBD
+```shell
+node --experimental-wasm-bigint scripts/start.js <wasm_file>
+```
 
 ## Documents
 
