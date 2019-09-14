@@ -12,6 +12,7 @@
         "./src/args_get.cc",
         "./src/proc_exit.cc",
         "./src/fd_fdstat_get.cc",
+        "./src/sys_wrap.cc",
         "./src/util.cc"
       ]
     },
