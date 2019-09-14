@@ -1,6 +1,5 @@
 {
 	"name": "wasi-node",
 	"dockerFile": "../docker/Dockerfile",
-	"runArgs": ["-v", "/Users/luishsu/.ssh/id_rsa:/home/wasi_node/.ssh/id_rsa"],
 	"extensions": []
 }
