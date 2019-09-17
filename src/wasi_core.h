@@ -481,11 +481,6 @@ __wasi_errno_t __wasi_environ_sizes_get(
     size_t *environ_buf_size
 ) __WASI_SYSCALL_NAME(environ_sizes_get) __attribute__((__warn_unused_result__));
 
-__wasi_errno_t __wasi_fd_prestat_get(
-    __wasi_fd_t fd,
-    __wasi_prestat_t *buf
-) __WASI_SYSCALL_NAME(fd_prestat_get) __attribute__((__warn_unused_result__));
-
 __wasi_errno_t __wasi_fd_prestat_dir_name(
     __wasi_fd_t fd,
     char *path,

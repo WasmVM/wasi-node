@@ -47,7 +47,8 @@ int32_t call_fstat(int fd, struct stat *statPtr){
   return __WASI_ESUCCESS;
 }
 int32_t call_readlink(const char *pathname, char *buf, size_t bufsiz, ssize_t *pathSizPtr){
-  if((*pathSizPtr = readlink(pathname, buf, bufsiz)) == -1){
+  ssize_t pathSiz;
+  if((pathSiz = readlink(pathname, buf, bufsiz)) == -1){
     switch (errno){
       case EACCES:
         return __WASI_EACCES;
@@ -78,6 +79,10 @@ int32_t call_readlink(const char *pathname, char *buf, size_t bufsiz, ssize_t *p
       break;
     }
   };
+  buf[pathSiz] = '\0';
+  if(pathSizPtr != nullptr){
+    *pathSizPtr = pathSiz;
+  }
   return __WASI_ESUCCESS;
 }
 
