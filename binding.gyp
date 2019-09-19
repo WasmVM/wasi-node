@@ -14,7 +14,10 @@
         "./src/fd_fdstat_get.cc",
         "./src/sys_wrap.cc",
         "./src/util.cc"
-      ]
+      ],
+      "cflags":[
+        "-fpack-struct=4"
+      ],
     },
   ]
 }
