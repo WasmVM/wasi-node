@@ -1,1 +1,1 @@
-module.exports = require('./build/Release/wasi_node');
+module.exports = require('./build/Debug/wasi_node');
