@@ -8,9 +8,13 @@ promisify(fs.readFile)(process.argv[2])
   wasi.init(instance, {
     capable_path: [process.cwd()]
   });
-  instance.exports._start()
-  let buffer = new Uint8Array(instance.exports.memory.buffer);
-  fs.writeFileSync("dumpmem.txt", buffer);
+  try{
+    instance.exports._start()
+  }catch(e){
+    console.error(e.stack)
+    let buffer = new Uint8Array(instance.exports.memory.buffer);
+    fs.writeFileSync("dumpmem.txt", buffer);
+  }
 })
 .catch(err => {
   console.error(err)

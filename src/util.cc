@@ -50,6 +50,9 @@ napi_status napi_get_wasi_pointer(napi_env env, napi_value value, napi_ref conte
   }
   uint32_t offset;
   status = napi_get_value_uint32(env, value, &offset);
+  if(status != napi_ok){
+    return status;
+  }
   if(offset + resultSize > memorySize){
     napi_throw_range_error(env, nullptr, "Out of memory bound");
     return napi_invalid_arg;

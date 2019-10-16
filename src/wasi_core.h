@@ -345,9 +345,6 @@ typedef struct __wasi_subscription_t {
 } __wasi_subscription_t;
 
 /*
-#define __WASI_SYSCALL_NAME(name) \
-    __attribute__((__import_module__("wasi_unstable"), __import_name__(#name)))
-
 __wasi_errno_t __wasi_args_get(
     char **argv,
     char *argv_buf
@@ -426,11 +423,6 @@ __wasi_errno_t __wasi_fd_tell(
     __wasi_fd_t fd,
     __wasi_filesize_t *newoffset
 ) __WASI_SYSCALL_NAME(fd_tell) __attribute__((__warn_unused_result__));
-
-__wasi_errno_t __wasi_fd_fdstat_get(
-    __wasi_fd_t fd,
-    __wasi_fdstat_t *buf
-) __WASI_SYSCALL_NAME(fd_fdstat_get) __attribute__((__warn_unused_result__));
 
 __wasi_errno_t __wasi_fd_fdstat_set_flags(
     __wasi_fd_t fd,
@@ -582,10 +574,6 @@ __wasi_errno_t __wasi_poll_oneoff(
     size_t nsubscriptions,
     size_t *nevents
 ) __WASI_SYSCALL_NAME(poll_oneoff) __attribute__((__warn_unused_result__));
-
-_Noreturn void __wasi_proc_exit(
-    __wasi_exitcode_t rval
-) __WASI_SYSCALL_NAME(proc_exit);
 
 __wasi_errno_t __wasi_proc_raise(
     __wasi_signal_t sig
