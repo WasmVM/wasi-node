@@ -17,7 +17,7 @@ extern "C" {
 namespace wasi_node {
 
 napi_value fd_prestat_dir_name(napi_env env, napi_callback_info cbinfo) {
-// Result variables;
+  // Result variables;
   napi_value result;
   int32_t resInt = __WASI_ESUCCESS;
 

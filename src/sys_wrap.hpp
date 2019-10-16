@@ -12,6 +12,7 @@ namespace wasi_node {
 
 int32_t call_fstat(int fd, struct stat *statPtr);
 int32_t call_readlink(const char *pathname, char *buf, size_t bufsiz, ssize_t *pathSizPtr);
+int32_t call_getsockopt(int sockfd, int level, int optname, void *optval, socklen_t *optlen);
 
 #ifdef __APPLE__
 int32_t call_fcntl_get_path(int fd, char* filePath);

@@ -4,6 +4,7 @@ extern "C"{
 #include <unistd.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <sys/socket.h>
 #include "wasi_core.h"
 }
 
@@ -83,6 +84,31 @@ int32_t call_readlink(const char *pathname, char *buf, size_t bufsiz, ssize_t *p
   if(pathSizPtr != nullptr){
     *pathSizPtr = pathSiz;
   }
+  return __WASI_ESUCCESS;
+}
+int32_t call_getsockopt(int sockfd, int level, int optname, void *optval, socklen_t *optlen){
+  if(getsockopt(sockfd, level, optname, optval, optlen) == -1){
+    switch (errno){
+      case EBADF:
+        return __WASI_EBADF;
+      break;
+      case EFAULT:
+        return __WASI_EFAULT;
+      break;
+      case EINVAL:
+        return __WASI_EINVAL;
+      break;
+      case ENOPROTOOPT:
+        return __WASI_ENOPROTOOPT;
+      break;
+      case ENOTSOCK:
+        return __WASI_ENOTSOCK;
+      break;
+      default:
+        return __WASI_EINVAL;
+      break;
+    }
+  };
   return __WASI_ESUCCESS;
 }
 
