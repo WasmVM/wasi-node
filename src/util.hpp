@@ -8,5 +8,6 @@
 
 napi_status napi_get_wasi_memory(napi_env env, napi_ref contextRef, uint8_t **memoryPtr, size_t *memorySizePtr);
 napi_status napi_get_wasi_pointer(napi_env env, napi_value value, napi_ref contextRef, void **resultPtr, size_t resultSize);
+napi_value wasi_node_throw_error(napi_env env, const char *code, const char *msg);
 
 #endif
