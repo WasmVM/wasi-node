@@ -60,3 +60,8 @@ napi_status napi_get_wasi_pointer(napi_env env, napi_value value, napi_ref conte
   *resultPtr = (void*)((intptr_t)memory + offset);
   return status;
 }
+
+napi_value wasi_node_throw_error(napi_env env, const char *code, const char *msg){
+  napi_throw_error(env, code, msg);
+  return nullptr;
+}

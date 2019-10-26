@@ -1,13 +1,13 @@
 const fs = require('fs');
 const {promisify} = require('util');
-const wasi = require('../index');
+const WasiNode = require('../index');
 
 promisify(fs.readFile)(process.argv[2])
-.then(data => WebAssembly.instantiate(data, wasi))
+.then(data => WasiNode(data, {
+  argv: process.argv.slice(2),
+  capable_path: [process.cwd()],
+}))
 .then(({instance}) => {
-  wasi.init(instance, {
-    capable_path: [process.cwd()]
-  });
   try{
     instance.exports._start()
   }catch(e){
