@@ -47,7 +47,6 @@ napi_value environ_get(napi_env env, napi_callback_info cbinfo) {
     if(napi_create_int32(env, __WASI_EINVAL, &result) != napi_ok) return nullptr;
     return result;
   }
-  printf("Offset: %u\n", environ_buf_offset);
 
   // Fill environ
   for(size_t i = 0; environ[i] != nullptr; ++i){

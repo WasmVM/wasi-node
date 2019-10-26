@@ -11,10 +11,12 @@ promisify(fs.readFile)(process.argv[2])
   try{
     instance.exports._start()
   }catch(e){
-    console.error(e.stack)
-    let buffer = new Uint8Array(instance.exports.memory.buffer);
-    fs.writeFileSync("dumpmem.txt", buffer);
+    Promise.reject(e)
   }
+  return instance;
+})
+.then((instance) => {
+  fs.writeFileSync("dumpmem.txt", new Uint8Array(instance.exports.memory.buffer));
 })
 .catch(err => {
   console.error(err)
